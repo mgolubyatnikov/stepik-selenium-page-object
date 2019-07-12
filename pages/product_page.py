@@ -6,7 +6,7 @@ class ProductPage(BasePage):
     def add_product_to_cart(self):
         button = self.browser.find_element(*ProductPageLocators.ADD_TO_BASKET_BUTTON)
         button.click()
-        self.solve_quiz_and_get_code()
+        #self.solve_quiz_and_get_code()
 
     def should_be_product_added_to_cart_message(self):
         product_name = self.browser.find_element(*ProductPageLocators.PRODUCT_NAME).text

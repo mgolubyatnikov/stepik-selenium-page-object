@@ -4,6 +4,8 @@ from pages.login_page import LoginPage
 from pages.cart_page import CartPage
 import time
 
+coders_at_work_207_product_page = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"
+
 @pytest.mark.login_user
 class TestUserAddToCartFromProductPage(object):
 
@@ -19,65 +21,29 @@ class TestUserAddToCartFromProductPage(object):
 
     @pytest.mark.need_review
     def test_user_can_add_product_to_cart(self, browser):
-        link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=newYear2019"
-        page = ProductPage(browser, link)
+        page = ProductPage(browser, coders_at_work_207_product_page)
         page.open()
         page.add_product_to_cart()
         page.should_be_product_added_to_cart_message()
         page.should_be_basket_price_message()
 
-    product_link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"
-
     def test_user_cant_see_success_message(self, browser): 
-        page = ProductPage(browser, self.product_link)
+        page = ProductPage(browser, coders_at_work_207_product_page)
         page.open()
         page.should_not_be_success_message()
 
 @pytest.mark.need_review
 def test_guest_can_add_product_to_cart(browser):
-    link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=newYear2019"
-    page = ProductPage(browser, link)
+    page = ProductPage(browser, coders_at_work_207_product_page)
     page.open()
     page.add_product_to_cart()
     page.should_be_product_added_to_cart_message()
     page.should_be_basket_price_message()
 
-
-# @pytest.mark.parametrize('link', ["http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer0",
-#                                   "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer1",
-#                                   "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer2",
-#                                   "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer3",
-#                                   "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer4",
-#                                   "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer5",
-#                                   "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer6",
-#                                   "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer7",
-#                                   "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer8",
-#                                   "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer9"])
-# def test_guest_can_add_product_to_cart_with_promo(browser, link):
-#     page = ProductPage(browser, link)
-#     page.open()
-#     page.add_product_to_cart()
-#     page.should_be_product_added_to_cart_message()
-#     page.should_be_basket_price_message()
-
-coders_at_work_207_product_page = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"
-
-# def test_guest_cant_see_success_message_after_adding_product_to_cart(browser): 
-#     page = ProductPage(browser, coders_at_work_207_product_page)
-#     page.open()
-#     page.add_product_to_cart()
-#     page.should_not_be_success_message()
-
 def test_guest_cant_see_success_message(browser): 
     page = ProductPage(browser, coders_at_work_207_product_page)
     page.open()
     page.should_not_be_success_message()
-
-# def test_message_dissapeared_after_adding_product_to_cart(browser):  
-#     page = ProductPage(browser, coders_at_work_207_product_page)
-#     page.open()
-#     page.add_product_to_cart()
-#     page.should_be_success_message_disappeared()
 
 the_city_and_the_stars_95_product_page = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/"
 
